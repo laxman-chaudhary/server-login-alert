@@ -1,0 +1,5 @@
+CHATID1="@server_login_alert"
+USERID="1273809746"
+KEY="6228591089:AAHqeQsnTF7lCUjPJ7-KAuE54XSGOZotV9M"
+TIMEOUT="10"
+URL1="https://api.telegram.org/bot$KEY/sendMessage"

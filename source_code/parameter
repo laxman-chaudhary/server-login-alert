@@ -1,0 +1,6 @@
+
+  CITY=$(sed -n 's/^  "city":[[:space:]]*//p' "$TMPFILE" | sed 's/"//g' | tr -d ',')
+  REGION=$(sed -n 's/^  "region":[[:space:]]*//p' "$TMPFILE" | sed 's/"//g' | tr -d ',')
+  COUNTRY_CODE=$(sed -n 's/^  "country":[[:space:]]*//p' "$TMPFILE" | sed 's/"//g' | tr -d ',')
+  ORG=$(sed -n 's/^  "org":[[:space:]]*//p' "$TMPFILE" | sed 's/"//g' | tr -d ',')
+  COUNTRY=${COUNTRY_MAP[$COUNTRY_CODE]}

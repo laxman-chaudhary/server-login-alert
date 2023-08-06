@@ -1,0 +1,40 @@
+#!/bin/bash
+source "$(dirname "${BASH_SOURCE[0]}")/.kreds"
+source "$(dirname "${BASH_SOURCE[0]}")/.kontry"
+
+if [ "$PAM_TYPE" = "close_session" ]; then
+  WHAT="OUT"
+else
+  WHAT="IN"
+fi
+
+DATE_EXEC="$(date "+%d %b %Y %H:%M")"
+TMPFILE="/tmp/ipinfo-$DATE_EXEC.txt"
+
+if [ -n "$PAM_RHOST" ] && [ -z "$TMUX" ]; then
+
+  IP=$(echo "$PAM_RHOST")
+  HOSTNAME=$(hostname)
+  IPADDR=$(curl -s icanhazip.com)
+
+curl -s "https://ipinfo.io/$IP" -o "$TMPFILE"
+
+source "$(dirname "${BASH_SOURCE[0]}")/.param"
+
+  TEXT="*Server Logged \`$WHAT\`* 
+
+  *Hostname:*  \`$HOSTNAME\`
+  *User:* \`$PAM_USER\`
+  *Server IP:* [$IPADDR](http://$IPADDR)
+  *Time:* \`$DATE_EXEC\`
+  
+  *From IP:* [$IP](http://$IP)
+  *City:* \`$CITY\`
+  *Region:* \`$REGION\`
+  *Country:* \`$COUNTRY\`
+  *ISP:* \`$ORG\`"
+
+  curl -s --max-time "$TIMEOUT" -d "chat_id=$CHATID1&disable_web_page_preview=1&text=$TEXT&parse_mode=Markdown" "$URL1" > /dev/null
+
+  rm "$TMPFILE"
+fi
