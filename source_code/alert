@@ -1,6 +1,6 @@
 #!/bin/bash
-source "$(dirname "${BASH_SOURCE[0]}")/.kreds"
-source "$(dirname "${BASH_SOURCE[0]}")/.kontry"
+source "$(dirname "${BASH_SOURCE[0]}")/.token"
+source "$(dirname "${BASH_SOURCE[0]}")/.country_code"
 
 if [ "$PAM_TYPE" = "close_session" ]; then
   WHAT="OUT"
@@ -19,7 +19,7 @@ if [ -n "$PAM_RHOST" ] && [ -z "$TMUX" ]; then
 
 curl -s "https://ipinfo.io/$IP" -o "$TMPFILE"
 
-source "$(dirname "${BASH_SOURCE[0]}")/.param"
+source "$(dirname "${BASH_SOURCE[0]}")/.parameter"
 
   TEXT="*Server Logged \`$WHAT\`* 
 
