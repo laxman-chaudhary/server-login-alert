@@ -5,11 +5,11 @@ Here are few things you need before you install the script.
 
 
 This script is scuessfully testd on 
-**Ubuntu
-RHEL
-CENTOS
-Rockey Linux
-Alma Linux**
+**1.Ubuntu
+2.RHEL
+3.CENTOS
+3.Rockey Linux
+4.Alma Linux**
 
 Instruction: 
 
