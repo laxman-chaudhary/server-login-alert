@@ -24,17 +24,17 @@ done
 
 
 # Prompt the user for input
-echo
 sleep 1
+echo
 echo "Get Token ID from Telegram bot with help of God Father"
 sleep 2
 echo
 echo "use '/newbot' to create new bot" 
-sleep 0.5
+sleep 1
 echo
 echo "or use '/mybot' to reveal the existing token" 
 echo
-sleep 0.5
+sleep 1
 read -p "Enter USERID eg. 1234567: "  USERID
 echo
 sleep 0.5
@@ -51,8 +51,7 @@ echo "KEY=\"$KEY\"" >> source_code/.token
 echo "TIMEOUT=\"$TIMEOUT\"" >> source_code/.token
 echo "URL=\"$URL\"" >> source_code/.token
 echo
-sleep 0.2
-echo "Token configuration saved "
+echo "Saving token configuration... "
 sleep 1
 
 dir_path="/opt"
@@ -86,13 +85,11 @@ else
     echo "$new_line" | sudo tee -a /etc/pam.d/sshd > /dev/null
     # echo "Done."
     
-fi
-
-
+fi 
  sleep 0.5
- # echo "Try ' \$ sudo alert' command to test the script"
  echo
- echo "Please login server to test"
+ echo "Re-login server to test the script"
+ sleep 1.5
  echo
  echo "Installation Finished..."
  echo
