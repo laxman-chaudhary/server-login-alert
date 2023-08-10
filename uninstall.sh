@@ -7,18 +7,6 @@ if [[ $UID -ne 0 ]]; then
     exit 1
 fi
 
-soft_link="/usr/local/bin/alert" 
-
-if [ -f "$soft_link" ]; then
-    # echo "File '$soft_link' exists. Deleting..."
- rm "$soft_link"
-
-#     echo "File deleted."
-# else
-#     echo "File '$soft_link' does not exist. Skipping deletion."
-fi
-
-
 
 installed_directory="/opt/script/login-alert"
 if [ -d "$installed_directory" ]; then
@@ -28,7 +16,6 @@ if [ -d "$installed_directory" ]; then
 # else
     # echo "Directory '$installed_directory' does not exist."
 fi
-# echo "deleting softlinkls"
 
 #Deleting Parameter from /etc/pam.d/sshd
 

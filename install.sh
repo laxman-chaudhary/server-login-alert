@@ -7,19 +7,18 @@ if [[ $UID -ne 0 ]]; then
     exit 1
 fi
 
-#Define an array of file paths
+
 purge_file=(
     "source_code/.token"
-    "/usr/local/bin/alert"
+    # "/usr/local/bin/alert"
 )
 
 for purge in "${purge_file[@]}"; do
     if [ -f "$purge" ]; then
-        rm "$purge"
-        #  echo "File $purge deleted"
-        #  else
-        #  echo "File $purge not found"
-
+        rm -f "$purge"
+        #   echo "File $purge deleted"
+        #   else
+        #   echo "File $purge not found"
     fi
 done
 
@@ -32,22 +31,23 @@ sleep 2
 echo
 echo "use '/newbot' to create new bot" 
 sleep 0.5
+echo
 echo "or use '/mybot' to reveal the existing token" 
 echo
 sleep 0.5
 read -p "Enter USERID eg. 1234567: "  USERID
 echo
 sleep 0.5
-read -p "Enter KEY eg. 6085238023:ABEaJi5i-dYgWe1RYuNt0_0s14C5eE7Hw8xEi: " KEY
+read -p "Enter KEY eg. 6085238023:ABEaJi5i-dYgWe1RYuNt0_0s14C5eE7Hw8xEi: "  KEY
 
 # Define other variables
 TIMEOUT="10"
-URL="https://api.telegram.org/bot\$${KEY}/sendMessage"
+URL="https://api.telegram.org/bot\$KEY/sendMessage"
 
 # Create the .token file
 touch source_code/.token
 echo "USERID=\"$USERID\"" > source_code/.token
-echo "KEY=\"$$KEY\"" >> source_code/.token
+echo "KEY=\"$KEY\"" >> source_code/.token
 echo "TIMEOUT=\"$TIMEOUT\"" >> source_code/.token
 echo "URL=\"$URL\"" >> source_code/.token
 echo
@@ -64,18 +64,17 @@ if [ ! -d "$full_path" ]; then
     mkdir -p "$full_path"
 fi
 
-echo
-rsync -q source_code/ $full_path/ && chmod +x $full_path/alert 2>&1 >/dev/null
+
+rsync -ahz --quiet source_code/ $full_path/ && chmod +x $full_path/alert 2>&1 >/dev/null
 sleep 1
 cat /dev/null > source_code/.token
-#Create softlink
-ln -s $full_path/alert /usr/local/bin/alert
 
-
+#Add Parameter on /etc/pam.d/sshd
 string_to_find="session optional pam_exec.so $full_path/alert"
 replacement_string="session optional pam_exec.so $full_path/alert"
 pam_location="/etc/pam.d/sshd"
 
+#Find and replace if string exist
 if grep -q "$string_to_find" "$pam_location"; then
     # echo "String found in $pam_location Replacing..."
     sudo sed -i "s|$string_to_find|$replacement_string|g" "$pam_location"
@@ -91,11 +90,10 @@ fi
 
 
  sleep 0.5
- echo "Sucessfully installed..."
+ # echo "Try ' \$ sudo alert' command to test the script"
  echo
- sleep 0.5
- echo "Try ' $sudo alert' command to test the script"
+ echo "Please login server to test"
  echo
-
+ echo "Installation Finished..."
+ echo
  #End of script
-
