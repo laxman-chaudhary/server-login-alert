@@ -1,5 +1,5 @@
 #!/bin/bash
-#Author: Laxman Chaudhary
+#Author: Laxman Dai
 #Date:  2023-08-10
 
 # Check if the script is being run as root
