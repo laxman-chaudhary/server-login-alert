@@ -1,5 +1,6 @@
 #!/bin/bash
-#Date: 2023-08-10
+#Author: Alex
+#Date:  2023-08-10
 
 # Check if the script is being run as root
 if [[ $UID -ne 0 ]]; then
