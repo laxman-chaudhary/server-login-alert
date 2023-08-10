@@ -13,29 +13,9 @@ Alma Linux**
 
 Instruction: 
 
-root@cybersecurity:~/server-login-alert# 
-root@cybersecurity:~/server-login-alert# **ls**
-**install.sh  README.md  source_code  uninstall.sh**
-root@cybersecurity:~/server-login-alert# 
-root@cybersecurity:~/server-login-alert# **./install.sh **
-
-Get Token ID from Telegram bot with help of God Father
-
-use '/newbot' to create new bot
-
-or use '/mybot' to reveal the existing token
-
-Enter USERID eg. 1234567: **1085716212**
-
-Enter KEY eg. 6085238023:ABEaJi5i-dYgWe1RYuNt0_0s14C5eE7Hw8xEi: **ABCD38023:ABEaJi5i-dYgWe1RYuNt0_0s14C5eEJLK**
-
-Saving token configuration... 
-
-Re-login server to test the script
-
-Installation Finished...
-
-root@cybersecurity:~/server-login-alert# 
+![image](https://github.com/laxman-chaudhary/server-login-alert/assets/17145173/bab648e7-acf5-4f1a-af82-2d20b71775f4)
 
 
-![image](https://github.com/laxman-chaudhary/server-login-alert/assets/17145173/6842bd40-cbc8-4221-b331-461a466850c6)
+Output:
+
+![image](https://github.com/laxman-chaudhary/server-login-alert/assets/17145173/65d8e712-3eba-400a-b3ef-b84fb1b00526)
