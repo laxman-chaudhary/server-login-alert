@@ -37,7 +37,7 @@ echo
 echo "or use '/mybot' to reveal the existing token" 
 echo
 sleep 1
-read -p "Enter USERID eg. 1234567: "  USERID
+read -p "Enter USERID eg. 12738097460: "  USERID
 echo
 sleep 0.5
 read -p "Enter KEY eg. 6085238023:ABEaJi5i-dYgWe1RYuNt0_0s14C5eE7Hw8xEi: "  KEY
